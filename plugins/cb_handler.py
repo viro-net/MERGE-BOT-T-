@@ -40,10 +40,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton(
-                            "📤 To Telegram", callback_data="to_telegram"
-                        ),
-                        InlineKeyboardButton("🌫️ To Drive", callback_data="to_drive"),
-                    ],
+                            "📤 To Telegram", callback_data="to_telegram")],
                     [InlineKeyboardButton("⛔ Cancel ⛔", callback_data="cancel")],
                 ]
             ),
@@ -73,7 +70,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("👆 Default", callback_data="rename_NO"),
-                        InlineKeyboardButton("✍️ Rename", callback_data="rename_YES"),
+                        InlineKeyboardButton("✍️ Rename (not available)", callback_data="rename_YES"),
                     ],
                     [InlineKeyboardButton("⛔ Cancel ⛔", callback_data="cancel")],
                 ]
@@ -105,7 +102,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("👆 Default", callback_data="rename_NO"),
-                        InlineKeyboardButton("✍️ Rename", callback_data="rename_YES"),
+                        InlineKeyboardButton("✍️ Rename (not available)", callback_data="rename_YES"),
                     ],
                     [InlineKeyboardButton("⛔ Cancel ⛔", callback_data="cancel")],
                 ]
@@ -121,7 +118,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("👆 Default", callback_data="rename_NO"),
-                        InlineKeyboardButton("✍️ Rename", callback_data="rename_YES"),
+                        InlineKeyboardButton("✍️ Rename (not available)", callback_data="rename_YES"),
                     ],
                     [InlineKeyboardButton("⛔ Cancel ⛔", callback_data="cancel")],
                 ]
