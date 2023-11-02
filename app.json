@@ -12,7 +12,7 @@
 	"stack": "container",
 	"env": {
 		"CONFIG_FILE_URL": {
-			"description": "Make Config on gist and paste raw link "
+			"description": "Make Config on gist and paste raw link", "required": false
 		}
 	},
 	"formation": {
