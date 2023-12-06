@@ -35,7 +35,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     # async def cb_handler(c: Client, cb: CallbackQuery):
     if cb.data == "merge":
         await cb.message.edit(
-            text="Where do you want me to upload?",
+            text="**Choose from below where do you want to upload ?**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -84,7 +84,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "to_telegram":
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="**What format do you want me to upload ?**",
+            text="**Choose from below in what format do you want to upload ?**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -116,7 +116,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "video":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="Do you want to rename? Default file name is \n**@Anime_DownLord.mkv**",
+            text="**Do you want to rename ? Default file name is \n**@Anime_DownLord.mkv**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -146,7 +146,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
         user = UserSettings(cb.from_user.id, cb.from_user.first_name)
         if "YES" in cb.data:
             await cb.message.edit(
-                "**Current filename: @Anime_DownLord.mkv**\n\n**Send me new file name without extension: You have 1 minute**"
+                "**Current filename:\n@Anime_DownLord.mkv**\n\n**Send me new file name without extension: You have 2 minute.**"
             )
             res: Message = await c.listen(chat_id=cb.message.chat.id, filters=filters.text, listener_type=ListenerTypes.MESSAGE, timeout=180, user_id=cb.from_user.id)
             if res.text:
@@ -185,7 +185,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
         chat_id, mes_id, from_usr = cmf[1], cmf[2], cmf[3]
         if int(cb.from_user.id) == int(from_usr):
             await c.answer_callback_query(
-                cb.id, text="Going to Cancel...", show_alert=False
+                cb.id, text="**Cancelling...**", show_alert=True
             )
             gDict[int(chat_id)].append(int(mes_id))
         else:
