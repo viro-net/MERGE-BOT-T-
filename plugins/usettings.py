@@ -43,11 +43,11 @@ async def userSettings(
         uSettingsMessage = f"""
 <b><u>Namaste <a>{usettings.mention}</a></u></b>
     ╭──────────────────────
-    ┣**UserID: <u>{usettings.user_id}</u>**
-    ┣**{'' if usettings.banned else ''} Ban Status: <u>{usettings.banned}</u>**
-    ┣**{'' if usettings.allowed else ''} Allowed: <u>{usettings.allowed}</u>**
-    ┣**{'' if usettings.edit_metadata else ''} Edit Metadata: <u>{usettings.edit_metadata}</u>**
-    ┣**Merge mode: <u>{userMergeModeStr}</u>**
+    ┣**🎭 UserID: <u>{usettings.user_id}</u>**
+    ┣**{'🪹' if usettings.banned else '🪺'} Ban Status: <u>{usettings.banned}</u>**
+    ┣**{'☀️' if usettings.allowed else '🌦️'} Allowed: <u>{usettings.allowed}</u>**
+    ┣**{'🏜️' if usettings.edit_metadata else '☄️'} Edit Metadata: <u>{usettings.edit_metadata}</u>**
+    ┣**🚏 Merge mode: <u>{userMergeModeStr}</u>**
     ╰──────────────────────
 """
         markup = b.makebuttons(
