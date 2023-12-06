@@ -42,12 +42,12 @@ async def userSettings(
             editMetadataStr = "False"
         uSettingsMessage = f"""
 ╭──────────────────────
-**User Information:**
-**UserId- <u>{usettings.user_id}; User- {usettings.mention}</u>**
-**Ban Status: {'Banned' if usettings.banned else 'Not Banned'}**
-**Access Allowed: {'Allowed' if usettings.allowed else 'Not Allowed'}**
-**Edit Metadata Permission: {'True' if usettings.edit_metadata else 'False'}**
-**Merge Mode: <u>{userMergeModeStr}</u>**
+**Namaste:** <u>{usettings.mention}</u>
+**- UID-<u>{usettings.user_id}</u>
+**{'True' if usettings.banned else 'False'} Ban Status: <u>{usettings.banned}</u>**
+**{'True' if usettings.allowed else 'False'} Allowed: <u>{usettings.allowed}</u>**
+**{'True' if usettings.edit_metadata else 'False'} Edit Metadata: <u>{usettings.edit_metadata}</u>**
+**Merge mode: <u>{userMergeModeStr}</u>**
 ╰──────────────────────
 """
         markup = b.makebuttons(
