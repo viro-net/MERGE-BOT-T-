@@ -26,28 +26,29 @@ async def userSettings(
     if usettings.user_id:
         if usettings.merge_mode == 1:
             userMergeModeId = 1
-            userMergeModeStr = "Extract"
+            userMergeModeStr = "Video + Video"
         elif usettings.merge_mode == 2:
             userMergeModeId = 2
-            userMergeModeStr = "Video 🎥 + Audio 🎵"
+            userMergeModeStr = "Video + Audio"
         elif usettings.merge_mode == 3:
             userMergeModeId = 3
-            userMergeModeStr = "Video 🎥 + Subtitle 📜"
+            userMergeModeStr = "Video + Subtitle"
         elif usettings.merge_mode == 4:
             userMergeModeId = 4
-            userMergeModeStr = "Video 🎥 + Video 🎥" 
+            userMergeModeStr = "Extract" 
         if usettings.edit_metadata:
-            editMetadataStr = "✅"
+            editMetadataStr = "True"
         else:
-            editMetadataStr = "❌"
+            editMetadataStr = "False"
         uSettingsMessage = f"""
-<b><u>Merge Bot settings for <a href='tg://user?id={uid}'>{fname} {lname}</a></u></b>
-    ┃
-    ┣**👦 ID: <u>{usettings.user_id}</u>**
-    ┣**{'🚫' if usettings.banned else '🫡'} Ban Status: <u>{usettings.banned}</u>**
-    ┣**{'⚡' if usettings.allowed else '❗'} Allowed: <u>{usettings.allowed}</u>**
-    ┣**{'✅' if usettings.edit_metadata else '❌'} Edit Metadata: <u>{usettings.edit_metadata}</u>**
-    ┗**Ⓜ️ Merge mode: <u>{userMergeModeStr}</u>**
+╭──────────────────────
+**User Information:**
+**UserId- <u>{usettings.user_id}; User- {usettings.mention}</u>**
+**Ban Status: {'Banned' if usettings.banned else 'Not Banned'}**
+**Access Allowed: {'Allowed' if usettings.allowed else 'Not Allowed'}**
+**Edit Metadata Permission: {'True' if usettings.edit_metadata else 'False'}**
+**Merge Mode: <u>{userMergeModeStr}</u>**
+╰──────────────────────
 """
         markup = b.makebuttons(
             [
