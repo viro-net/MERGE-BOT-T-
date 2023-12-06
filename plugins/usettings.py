@@ -41,12 +41,12 @@ async def userSettings(
         else:
             editMetadataStr = "False"
         uSettingsMessage = f"""
-<b><u>Namaste <a href='tg://user?id={uid}'>{fname} {lname} !!</a></u></b>
+<b><u>Namaste <a>{usettings.mention}</a></u></b>
     ╭──────────────────────
     ┣**UserID: <u>{usettings.user_id}</u>**
-    ┣**{'True' if usettings.banned else 'False'} Ban Status: <u>{usettings.banned}</u>**
-    ┣**{'True' if usettings.allowed else 'False'} Allowed: <u>{usettings.allowed}</u>**
-    ┣**{'True' if usettings.edit_metadata else 'False'} Edit Metadata: <u>{usettings.edit_metadata}</u>**
+    ┣**{'' if usettings.banned else ''} Ban Status: <u>{usettings.banned}</u>**
+    ┣**{'' if usettings.allowed else ''} Allowed: <u>{usettings.allowed}</u>**
+    ┣**{'' if usettings.edit_metadata else ''} Edit Metadata: <u>{usettings.edit_metadata}</u>**
     ┣**Merge mode: <u>{userMergeModeStr}</u>**
     ╰──────────────────────
 """
