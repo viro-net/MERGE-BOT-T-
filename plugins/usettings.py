@@ -26,7 +26,7 @@ async def userSettings(
     if usettings.user_id:
         if usettings.merge_mode == 1:
             userMergeModeId = 1
-            userMergeModeStr = "Video 🎥 + Video 🎥"
+            userMergeModeStr = "Extract"
         elif usettings.merge_mode == 2:
             userMergeModeId = 2
             userMergeModeStr = "Video 🎥 + Audio 🎵"
@@ -35,7 +35,7 @@ async def userSettings(
             userMergeModeStr = "Video 🎥 + Subtitle 📜"
         elif usettings.merge_mode == 4:
             userMergeModeId = 4
-            userMergeModeStr = "Extract" 
+            userMergeModeStr = "Video 🎥 + Video 🎥" 
         if usettings.edit_metadata:
             editMetadataStr = "✅"
         else:
