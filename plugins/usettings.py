@@ -41,7 +41,7 @@ async def userSettings(
         else:
             editMetadataStr = "False"
         uSettingsMessage = f"""
-<b><u>Namaste <a>{usettings.mention}</a></u></b>
+<b><u><a href='tg://user?id={uid}'>{fname} {lname}</a></u></b>
     ╭──────────────────────
     ┣**🎭 UserID: <u>{usettings.user_id}</u>**
     ┣**{'🪹' if usettings.banned else '🪺'} Ban Status: <u>{usettings.banned}</u>**
