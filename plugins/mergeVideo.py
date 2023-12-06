@@ -46,8 +46,8 @@ async def mergeNow(c: Client, cb: CallbackQuery, new_file_name: str):
     for i in await c.get_messages(
 chat_id=cb.from_user.id, message_ids=list_message_ids ):
         media = i.video or i.document
-        await cb.message.edit(f"**Downloading started of...\n{media.file_name}.**")
-        LOGGER.info(f"**Downloading started of...\n{media.file_name}.**")
+        await cb.message.edit(f"**Downloading started of...\n{media.file_name}**")
+        LOGGER.info(f"**Downloading started of...\n{media.file_name}**")
         await asyncio.sleep(5)
         file_dl_path = None
         sub_dl_path = None
@@ -58,13 +58,13 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
                 message=media,
                 file_name=f"downloads/{str(cb.from_user.id)}/{str(i.id)}/vid.mkv",  # fix for filename with single quote(') in name
                 progress=prog.progress_for_pyrogram,
-                progress_args=(f"**Downloading:\n{media.file_name}.**", c_time, f"\n**Processing: {n}/{all}**"),
+                progress_args=(f"**Downloading:\n{media.file_name}**", c_time, f"\n**Processing: {n}/{all}**"),
             )
             n+=1
             if gDict[cb.message.chat.id] and cb.message.id in gDict[cb.message.chat.id]:
                 return
             await cb.message.edit(f"**Downloading completed...\n{media.file_name}**")
-            LOGGER.info(f"**Downloading completed...\n{media.file_name}.**")
+            LOGGER.info(f"**Downloading completed...\n{media.file_name}**")
             await asyncio.sleep(5)
         except UnknownError as e:
             LOGGER.info(e)
@@ -125,7 +125,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
         await cb.message.edit("**Video merging completed !**")
     except MessageNotModified:
         await cb.message.edit("**Video merging completed !**")
-    LOGGER.info(f"Video merged for: {cb.from_user.first_name} ")
+    LOGGER.info(f"**Merged for: {cb.from_user.mention}\nUserID- {cb.from_user.id}**")
     await asyncio.sleep(3)
     file_size = os.path.getsize(merged_video_path)
     os.rename(merged_video_path, new_file_name)
@@ -142,7 +142,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
         return
     if file_size > 4241280205 and Config.IS_PREMIUM == False: #2044723200
         await cb.message.edit(
-            f"Video is Larger than 2GB Can't Upload,\n\n Tell {Config.OWNER_USERNAME} to add premium account to get 4GB TG uploads"
+            f"**Video is Larger than 2GB Can't Upload,\n\n Tell {Config.OWNER_USERNAME} to add premium account to get 4GB TG uploads**"
         )
         await delete_all(root=f"downloads/{str(cb.from_user.id)}")
         queueDB.update({cb.from_user.id: {"videos": [], "subtitles": [], "audios": []}})
@@ -150,7 +150,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
         return
     if Config.IS_PREMIUM and file_size > 4241280205:
         await cb.message.edit(
-            f"Video is Larger than 4GB Can't Upload,\n\n Tell {Config.OWNER_USERNAME} to die with premium account"
+            f"**Video is Larger than 4GB Can't Upload,\n\n Tell {Config.OWNER_USERNAME} to die with premium account**"
         )
         await delete_all(root=f"downloads/{str(cb.from_user.id)}")
         queueDB.update({cb.from_user.id: {"videos": [], "subtitles": [], "audios": []}})
